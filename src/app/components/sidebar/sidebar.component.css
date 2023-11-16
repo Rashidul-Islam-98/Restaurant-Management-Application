@@ -1,0 +1,4 @@
+.active {
+    background: #F8E1E1;
+    transition: background 1s ease-in-out;
+}

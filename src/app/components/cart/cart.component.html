@@ -1,0 +1,37 @@
+<div class="flex justify-end w-full h-screen semi-transparent-bg absolute top-0 left-0">
+    <div class="w-full md:w-3/5 h-full bg-white overflow-y-auto">
+        <div class="flex justify-between border-b-4 border-b-primary w-full my-auto">
+            <h1 class="text-2xl font-semibold m-4">Cart</h1>
+            <mat-icon class="m-4" (click)="onCloseCart()">close</mat-icon>
+        </div>
+        <div *ngIf="isOrderFoodsExist">
+            <div class="flex flex-col w-full h-64 overflow-y-auto">
+                <div class="flex justify-between w-full h-24 p-2 border-b border-b-gray-500" *ngFor="let orderedFood of orderedFoods">
+                    <div class="flex ml-4">
+                        <img [src]="baseImageUrl+'food/'+orderedFood.image" alt=""
+                            class="w-[80px] h-[80px] rounded-full md:my-auto">
+                        <div class="flex flex-col space-y-4 ml-6">
+                            <h2>{{ orderedFood.name }}</h2>
+                            <div>
+                                <button class="w-8 border border-gray-600">-</button>
+                                <button class="w-8 border border-gray-600">1</button>
+                                <button class="w-8 border border-gray-600">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col space-y-4 mr-6">
+                        <mat-icon class="justify-self-end">delete</mat-icon>
+                        <p>Price: {{ orderedFood.price }} BDT</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-between border-b-1 border-b-gray-500 w-full my-auto">
+                <h1 class="text-xl m-4">Subtotal</h1>
+                <p>9300 BDT</p>
+            </div>
+            <div class="p-5">
+                <button class="w-full h-20 bg-primary hover:bg-secondary">Confirm Order</button>
+            </div>
+        </div>
+    </div>
+</div>

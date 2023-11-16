@@ -1,0 +1,27 @@
+<div class="flex justify-between space-x-20 h-full bg-primary mx-[10px] md:mx-[41px]">
+    <div class="flex md:space-x-[10px]">
+        <img src="https://legendary-lokum-6fdd3d.netlify.app/assets/logo-b95c2397.png" alt=""
+            class="w-[50px] h-[50px] my-auto">
+        <p class="text-primary text-border my-auto md:text-[22px]/[35.2px] tracking-[3px] md:font-extrabol">BSS RESTAURANT
+        </p>
+    </div>
+    <div class="hidden items-center justify-center md:flex">
+        <div class="flex h-full bg-secondary items-center justify-center p-5">
+            <p class="text-white">Admin</p>
+        </div>
+        <div class="flex h-full hover:bg-secondary items-center justify-center p-5">
+            <p class="text-white">Our Service</p>
+        </div>
+        <div class="flex h-full hover:bg-secondary items-center justify-center p-5">
+            <p class="text-white">About Us</p>
+        </div>
+    </div>
+    <div class="flex items-center justify-center space-x-4">
+        <div class="flex items-center justify-center" (click)="onCartToggle()">
+            <mat-icon class="text-white">shopping_cart</mat-icon>
+        </div>
+        <div class="flex items-center justify-center md:hidden" (click)="onNavbarToggle()">
+            <mat-icon class="text-white">{{ navbarOpen ? "menu": "close"}}</mat-icon>
+        </div>
+    </div>
+</div>

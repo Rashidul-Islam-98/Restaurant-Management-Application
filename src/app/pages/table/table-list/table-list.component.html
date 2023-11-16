@@ -1,0 +1,94 @@
+<div class="m-2 md:mx-[60px] md:my-[40px] overflow-y-auto">
+    <div *ngIf="isLoading" class="flex justify-center items-center h-[calc(100vh-68px)]">
+        <app-spinner></app-spinner>
+    </div>
+    <div *ngIf="!isLoading">
+        <div class="flex justify-between m-2">
+            <div class="border-b-4 border-b-primary">
+                <h1 class="text-[22px] md:text-heading">All Table List</h1>
+            </div>
+            <button class="border-2 border-primary w-32 h-10 rounded-md" routerLink="/add-table"><span class="text-sm">ADD TABLE</span></button>
+        </div>
+        <div class="mt-5 overflow-x-auto">
+            <div>
+                <table class="w-full text-sm text-left">
+                    <thead class="text-primary border-b bg-white">
+                        <tr>
+                            <th class="p-4">
+                                Image
+                            </th>
+                            <th class="p-4">
+                                Table Number
+                            </th>
+                            <th class="p-4">
+                                Total Seats
+                            </th>
+                            <th class="p-4">
+                                Availability
+                            </th>
+                            <th class="p-4">
+                                Employees
+                            </th>
+                            <th class="p-4">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white border-b" *ngFor="let table of tables">
+                            <td class="px-4">
+                                <img [src]="baseImageUrl+'table/'+table.image" alt=""
+                                    class="h-[40px] w-[40px] rounded-full">
+                            </td>
+                            <td class="p-4">
+                                {{ table.tableNumber}}
+                            </td>
+                            <td class="p-4">
+                                {{ table.numberOfSeats }}
+                            </td>
+                            <td class="p-4">
+                                <mat-icon *ngIf="!table.isOccupied" class="text-green-700">check_circle</mat-icon>
+                                <mat-icon *ngIf="table.isOccupied" class="text-red-700">check_circle</mat-icon>
+                            </td>
+                            <td class="p-4">
+                                <div class="flex flex-col space-y-2"  *ngFor="let employee of table.employees">
+                                    <div class="flex items-center space-x-1">
+                                        <p class="text-lg">{{ employee.name }}</p>
+                                        <mat-icon class="hover:text-primary" (click)="onDeleteEmployee(employee.employeeTableId)">remove_circle_outline</mat-icon>
+                                    </div>
+                                </div>
+                                <mat-icon class="text-yellow-600" (click)="onAddEmployeeToTable(table)">add_circle_outline</mat-icon>
+                            </td>
+                            <td class="p-4">
+                                <div class="flex space-x-3" (click)="onDelete(table.id)">
+                                    <mat-icon class="text-menuColor hover:text-primary">delete</mat-icon>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div *ngIf="isAddEmployeeMode">
+            <app-add-table-employee (loadTable)="loadTableData()"></app-add-table-employee>
+        </div>
+        <!--For pagination-->
+        <div class="flex justify-between w-full md:space-x-6 md:justify-end">
+            <div>
+                <label for="page">Items per Page: </label>
+                <select id="page" class="border bottom-1">
+                    <option>5</option>
+                    <option>10</option>
+                    <option>20</option>
+                </select>
+            </div>
+            <div>
+                1-5 of 5
+            </div>
+            <div>
+                <mat-icon class="text-sm text-gray-400">arrow_back_ios</mat-icon>
+                <mat-icon class="text-sm text-gray-400">arrow_forward_ios</mat-icon>
+            </div>
+        </div>
+    </div>
+</div>
