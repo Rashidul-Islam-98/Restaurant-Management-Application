@@ -7,25 +7,35 @@ https://restaurant-management-application.vercel.app/login
 
 ### Preview
 
-Login Page:(https://github.com/Rashidul-Islam-98/Screenshots/blob/main/login.jpg)
+## Login Page
+![Login Page](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/login.jpg)
 
-Home Page: (https://github.com/Rashidul-Islam-98/Screenshots/blob/main/home.JPG)
-Home Page with responsive menue: (https://github.com/Rashidul-Islam-98/Screenshots/blob/main/headerRes.JPG)
+## Home Page
+![Home Page](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/home.JPG)
+![Home Page with responsive menue](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/headerRes.JPG)
 
-Employee List: (https://github.com/Rashidul-Islam-98/Screenshots/blob/main/employee.JPG)
-Employee Responsive: (https://github.com/Rashidul-Islam-98/Screenshots/blob/main/employeeRes.JPG)
+## Employee Page
+![Employee List](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/employee.JPG)
+![Employee List Responsive](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/employeeRes.JPG)
 
-Add Employee: (https://github.com/Rashidul-Islam-98/Screenshots/blob/main/addEmployee1.JPG)
-              (https://github.com/Rashidul-Islam-98/Screenshots/blob/main/addEmployee2.JPG)
-Add Employee Responsive: (https://github.com/Rashidul-Islam-98/Screenshots/blob/main/addEmployeeRes.JPG)
+![Add Employee](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/addEmployee1.JPG)
+![Add Employee page 2](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/addEmployee2.JPG)
+![Add Employee Responsive](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/addEmployeeRes.JPG)
 
-Table List: (https://github.com/Rashidul-Islam-98/Screenshots/blob/main/tablee.JPG)
-Table List Responsive: (https://github.com/Rashidul-Islam-98/Screenshots/blob/main/tableRes.JPG)
+## Table Page
+![Table List](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/tablee.JPG)
+![Table Responsive](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/tableRes.JPG)
 
-Order Food: (https://github.com/Rashidul-Islam-98/Screenshots/blob/main/orderFood.JPG)
-            (https://github.com/Rashidul-Islam-98/Screenshots/blob/main/OrderFood2.JPG)
+![Assign Employee](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/assign.JPG)
+![Assign Employee Responsive](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/assignRes.JPG)
 
+## Food Order Page
+![Food Order](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/orderFood.JPG)
+![Food Order 2](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/OrderFood2.JPG)
 
+## Added Food to Cart
+![Cart](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/cart.JPG)
+![cart Responsive](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/cartRes.JPG)
 
 ## Features
 
