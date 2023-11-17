@@ -2,13 +2,13 @@
     <div *ngIf="isLoading" class="flex z-50 w-screen h-sreen items-center justify-center">
         <app-spinner></app-spinner>
     </div>
-    <div *ngIf="!isLoading"  class="w-screen h-screen flex">
+    <div *ngIf="!isLoading"  class="w-screen h-screen flex animate-slide-vertically">
         <div class="hidden md:flex w-full h-full justify-center items-center bg-login-image md:w-1/2"><img
                 src="https://legendary-lokum-6fdd3d.netlify.app/assets/login-bg-f9bf87e1.png"
                 class="w-[480px] h-[480px]">
         </div>
         <div class="flex w-full h-full justify-center md:w-1/2">
-            <div class="w-5/6 bg-[#f1f1f1] my-2 mx-16 rounded-xl">
+            <div class="w-full md:w-5/6 bg-[#f1f1f1] my-2 mx-16 rounded-xl">
                 <div class="flex flex-col justify-center items-center mx-11 my-8">
                     <img src="https://legendary-lokum-6fdd3d.netlify.app/assets/logo-b95c2397.png" alt="" width="110px"
                         height="110px">

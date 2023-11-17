@@ -1,27 +1,33 @@
-# BssRestaurant
+# BSS Restaurant Management Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.
+The BSS Restaurant Management Application is a comprehensive tool designed to streamline the operations within a restaurant. It allows an admin user to efficiently manage employees, tables, orders, and food items through a user-friendly interface. The application facilitates the assignment of employees to tables and enables seamless order management post successful login.
 
-## Development server
+### Link
+https://restaurant-management-application.vercel.app/login
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Preview
 
-## Code scaffolding
+-![Login Page](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/login.jpg)
+-![login Page Responsive](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/headerRes.JPG)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Features
 
-## Build
+### 1. Admin Panel
+- **Employee Management:** Add, remove, or update employee details such as name, contact information, role, and assigned tables.
+- **Table Management:** Create, modify, or delete tables within the restaurant layout. Assign employees to specific tables for efficient service.
+- **Food Management:** Maintain a catalogue of food items available in the restaurant. Include details like name, description, price, and availability status.
+- **Order Management:** Monitor and manage orders placed by customers. View, modify, or cancel orders as needed.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 2. Employee Assignment
+- **Table Assignment:** Assign employees to specific tables to manage customer service efficiently. Track the assigned tables for each employee.
+- **Order Assignment:** Assign orders to specific employees for order fulfillment and efficient service.
 
-## Running unit tests
+### 3. Authentication and Authorization
+- **Login System:** Secure login functionality for admin access to the application.
+- **Access Control:** Role-based access control to ensure appropriate permissions for different admin roles within the system.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Technologies Used
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- **Backend:** SpringBoot
+- **Frontend:** Angular, Tailwind CSS
+- **Database:** MySQL
