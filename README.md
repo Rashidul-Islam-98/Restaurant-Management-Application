@@ -7,8 +7,25 @@ https://restaurant-management-application.vercel.app/login
 
 ### Preview
 
--![Login Page](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/login.jpg)
--![login Page Responsive](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/headerRes.JPG)
+Login Page:(https://github.com/Rashidul-Islam-98/Screenshots/blob/main/login.jpg)
+
+Home Page: (https://github.com/Rashidul-Islam-98/Screenshots/blob/main/home.JPG)
+Home Page with responsive menue: (https://github.com/Rashidul-Islam-98/Screenshots/blob/main/headerRes.JPG)
+
+Employee List: (https://github.com/Rashidul-Islam-98/Screenshots/blob/main/employee.JPG)
+Employee Responsive: (https://github.com/Rashidul-Islam-98/Screenshots/blob/main/employeeRes.JPG)
+
+Add Employee: (https://github.com/Rashidul-Islam-98/Screenshots/blob/main/addEmployee1.JPG)
+              (https://github.com/Rashidul-Islam-98/Screenshots/blob/main/addEmployee2.JPG)
+Add Employee Responsive: (https://github.com/Rashidul-Islam-98/Screenshots/blob/main/addEmployeeRes.JPG)
+
+Table List: (https://github.com/Rashidul-Islam-98/Screenshots/blob/main/tablee.JPG)
+Table List Responsive: (https://github.com/Rashidul-Islam-98/Screenshots/blob/main/tableRes.JPG)
+
+Order Food: (https://github.com/Rashidul-Islam-98/Screenshots/blob/main/orderFood.JPG)
+            (https://github.com/Rashidul-Islam-98/Screenshots/blob/main/OrderFood2.JPG)
+
+
 
 ## Features
 
