@@ -31,7 +31,7 @@ https://restaurant-management-application.vercel.app/login
 
 ## Food Order Page
 ![Food Order](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/orderFood.JPG)
-![Food Order 2](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/OrderFood2.JPG)
+![Food Order 2](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/orderFood2.JPG)
 
 ## Added Food to Cart
 ![Cart](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/cart.JPG)
