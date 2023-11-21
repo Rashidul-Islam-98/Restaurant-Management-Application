@@ -25,6 +25,10 @@ import { FoodListComponent } from './pages/food/food-list/food-list.component';
 import { AddFoodComponent } from './pages/food/add-food/add-food.component';
 import { OrderFoodListComponent } from './pages/order-food/order-food-list/order-food-list.component';
 import { CartComponent } from './components/cart/cart.component';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { FoodItemComponent } from './components/food-item/food-item.component';
+import { AllOrdersComponent } from './pages/all-orders/all-orders.component';
+import { OrderCardComponent } from './components/order-card/order-card.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,11 @@ import { CartComponent } from './components/cart/cart.component';
     FoodListComponent,
     AddFoodComponent,
     OrderFoodListComponent,
-    CartComponent
+    CartComponent,
+    CartItemComponent,
+    FoodItemComponent,
+    AllOrdersComponent,
+    OrderCardComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { AddTableComponent } from './pages/table/add-table/add-table.component';
 import { FoodListComponent } from './pages/food/food-list/food-list.component';
 import { AddFoodComponent } from './pages/food/add-food/add-food.component';
 import { OrderFoodListComponent } from './pages/order-food/order-food-list/order-food-list.component';
+import { AllOrdersComponent } from './pages/all-orders/all-orders.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [
       { path: "add-table", component: AddTableComponent },
       { path: "foods", component: FoodListComponent },
       { path: "add-food", component: AddFoodComponent },
-      { path: "order-food", component: OrderFoodListComponent }
+      { path: "order-food", component: OrderFoodListComponent },
+      { path: "all-orders", component: AllOrdersComponent }
     ]
   }
 ];

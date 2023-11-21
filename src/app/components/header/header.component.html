@@ -1,6 +1,6 @@
 <div class="flex justify-between space-x-20 h-full bg-primary mx-[10px] md:mx-[41px]">
     <div class="flex md:space-x-[10px]">
-        <img src="https://legendary-lokum-6fdd3d.netlify.app/assets/logo-b95c2397.png" alt=""
+        <img src="../../../assets/images/logo.png" alt=""
             class="w-[50px] h-[50px] my-auto">
         <p class="text-primary text-border my-auto md:text-[22px]/[35.2px] tracking-[3px] md:font-extrabol">BSS RESTAURANT
         </p>
@@ -16,13 +16,13 @@
             <p class="text-white">About Us</p>
         </div>
     </div>
-    <div class="flex items-center justify-center space-x-4">
-        <div class="flex items-center justify-center relative" (click)="onCartToggle()">
+    <div class="flex items-center justify-center space-x-4 relative">
+        <div *ngIf="totalOrders>0" class="w-5 h-5 text-center rounded-full bg-white absolute top-1 left-0">{{ totalOrders }}</div>
+        <div class="text-center" (click)="onCartToggle()">
             <mat-icon class="text-white">shopping_cart</mat-icon>
-            <div *ngIf="totalOrders>0" class="w-4 h-4 rounded-full absolute top-4 right-4">{{ totalOrders }}</div>
         </div>
-        <div class="flex items-center justify-center md:hidden" (click)="onNavbarToggle()">
-            <mat-icon class="text-white">{{ navbarOpen ? "menu": "close"}}</mat-icon>
+        <div class="text-center md:hidden" (click)="onNavbarToggle()">
+            <mat-icon class="text-white">{{ navbarOpen ? "close": "menu"}}</mat-icon>
         </div>
     </div>
 </div>

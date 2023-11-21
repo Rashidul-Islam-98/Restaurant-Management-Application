@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { TableService } from 'src/app/services/table.service';
 import { baseImageUrl, baseUrl } from 'src/environments/environment';
@@ -29,10 +29,11 @@ export class AddTableEmployeeComponent implements OnInit{
     private toastr: ToastrService){}
 
   ngOnInit(){
-    this.tableService.table.subscribe((data: any) => {
-     this.table = data;
-     this.tableId = data.id;
-    }) 
+
+    this.tableService.table.subscribe(res => {
+      this.table = res;
+      this.tableId = this.table.id;
+    })
 
     this.http.get<TableEmployee[]>(`${baseUrl}Employee/get`).subscribe(res=>{
       res.forEach(item=>{

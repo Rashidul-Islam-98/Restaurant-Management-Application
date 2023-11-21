@@ -8,6 +8,7 @@ import { FoodService } from 'src/app/services/food.service';
 })
 export class MainLayoutComponent implements OnInit{
   isCartOpen: boolean = false;
+  isSidebarOpen: boolean = false;
 
   constructor(private foodService: FoodService){}
 
@@ -15,5 +16,9 @@ export class MainLayoutComponent implements OnInit{
     this.foodService.isCartOpen.subscribe(response => {
       this.isCartOpen = response;
     })
+  }
+
+  openSidebarMenu(event: any){
+    this.isSidebarOpen = event;
   }
 }

@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { IGetFoods } from 'src/app/models/get-foods.model';
 import { TableService } from 'src/app/services/table.service';
 import { baseImageUrl, baseUrl } from 'src/environments/environment';
-import { ISaveFood } from 'src/app/models/save-food.model';
 import { FoodService } from 'src/app/services/food.service';
 
 @Component({
@@ -44,15 +43,16 @@ export class OrderFoodListComponent implements OnInit{
     })
   }
 
-  tableSelected(){
+  tableSelected(table: any){
     this.isTableSelected = true;
+    this.tableService.table.next(table);
   }
 
   onSearchFood(searchText: string){
     this.loadFoodData();
   }
 
-  onOrderFood(food: ISaveFood){
-    this.foodService.orderFood(food);
+  onOrderFood(food: any){
+    return food;
   }
 }

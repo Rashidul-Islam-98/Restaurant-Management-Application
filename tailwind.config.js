@@ -3,6 +3,7 @@ const plugin = require('tailwindcss/plugin')
 module.exports = {
   content: [
     "./src/**/*.{html,ts}",
+    "./node_modules/flowbite/**/*.js"
   ],
   screens: {
     md: '1000px'
@@ -19,6 +20,8 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ],
 }
 

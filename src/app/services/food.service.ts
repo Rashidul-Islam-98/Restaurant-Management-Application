@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Subject } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { ISaveFood } from "../models/save-food.model";
 
 @Injectable({ providedIn: 'root' })
@@ -11,5 +11,14 @@ export class FoodService {
     orderFood(food: ISaveFood){
         this.orderedFoods.push(food);
         this.orderedFoodChanged.next(this.orderedFoods.slice());
+    }
+
+    deleteFood(food: ISaveFood){
+        this.orderedFoods = this.orderedFoods.filter(item => item.id !== food.id);
+        this.orderedFoodChanged.next(this.orderedFoods.slice());
+    }
+
+    getOrderedFoodChanges(): Observable<ISaveFood[]> {
+        return this.orderedFoodChanged.asObservable();
     }
 }

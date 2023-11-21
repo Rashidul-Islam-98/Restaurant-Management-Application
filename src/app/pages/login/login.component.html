@@ -1,32 +1,32 @@
 <div>
-    <div *ngIf="isLoading" class="flex z-50 w-screen h-sreen items-center justify-center">
+    <div *ngIf="isLoading" class="flex w-screen h-sreen items-center justify-center">
         <app-spinner></app-spinner>
     </div>
     <div *ngIf="!isLoading"  class="w-screen h-screen flex animate-slide-vertically">
         <div class="hidden md:flex w-full h-full justify-center items-center bg-login-image md:w-1/2"><img
-                src="https://legendary-lokum-6fdd3d.netlify.app/assets/login-bg-f9bf87e1.png"
+                src="../../../assets/images/login-food.png"
                 class="w-[480px] h-[480px]">
         </div>
         <div class="flex w-full h-full justify-center md:w-1/2">
-            <div class="w-full md:w-5/6 bg-[#f1f1f1] my-2 mx-16 rounded-xl">
+            <div class="w-full md:w-5/6 bg-[#f1f1f1] md:my-2 md:mx-16 md:rounded-xl">
                 <div class="flex flex-col justify-center items-center mx-11 my-8">
-                    <img src="https://legendary-lokum-6fdd3d.netlify.app/assets/logo-b95c2397.png" alt="" width="110px"
+                    <img src="../../../assets/images/logo.png" alt="" width="110px"
                         height="110px">
                     <p class="mt-3 text-2xl font-bold text-white tracking-wide text-shadow shadow-red-700">BSS
                         RESTAURANT</p>
                 </div>
-                <form class="mx-11 my-8" (ngSubmit)="onSubmit(f)" #f="ngForm">
+                <form class="mx-11 my-8" (ngSubmit)="onSubmit()">
                     <div class="mb-5">
                         <label for="username" class="text-lg mb-2">Username:</label>
                         <input type="text" id="username"
                             class="w-full text-lg py-3 pr-12 pl-3 border-2 rounded-md focus:border-green-500"
-                            placeholder="username" ngModel name="username" required #username="ngModel">
+                            placeholder="username" [(ngModel)]="userName" name="username" required>
                     </div>
                     <div class="mb-5">
                         <label for="password" class="text-lg mb-2">Password:</label>
                         <input type="password" id="password"
                             class="w-full text-lg py-3 pr-12 pl-3 border-2 rounded-md focus:border-green-500"
-                            placeholder="password" ngModel name="password" required minlength="6" #password="ngModel">
+                            placeholder="password" [(ngModel)]="password" name="password" required minlength="6">
                     </div>
                     <div>
                         <button type="submit" class="w-full text-lg text-white py-4 rounded-md bg-primary">Log

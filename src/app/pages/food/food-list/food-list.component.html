@@ -84,8 +84,8 @@
                 {{ getFoodResponse.from}}-{{ getFoodResponse.to}} of {{ getFoodResponse.total}}
             </div>
             <div>
-                <mat-icon *ngIf="Page>1" class="text-sm text-gray-400" (click)="onChangePage(-1)">arrow_back_ios</mat-icon>
-                <mat-icon *ngIf="Page<getFoodResponse.last_page" class="text-sm text-gray-400" (click)="onChangePage(1)">arrow_forward_ios</mat-icon>
+                <button type="button" [disabled]="Page<=1" (click)="onChangePage(-1)"><mat-icon [ngClass]="{ 'text-gray-400' : Page<=1 }" class="text-sm">arrow_back_ios</mat-icon></button>
+                <button type="button" [disabled]="Page>=getFoodResponse.last_page" (click)="onChangePage(1)"><mat-icon [ngClass]="{ 'text-gray-400' : Page>=getFoodResponse.last_page }" class="text-sm">arrow_forward_ios</mat-icon></button>
             </div>
         </div>
     </div>

@@ -1,8 +1,8 @@
-<div class="m-2 md:mx-[60px] md:my-[40px] overflow-hidden">
+<div class="m-2 md:mx-[60px] md:my-[40px] h-full">
     <div *ngIf="isLoading" class="flex justify-center items-center h-[calc(100vh-68px)]">
         <app-spinner></app-spinner>
     </div>
-    <div *ngIf="!isLoading">
+    <div *ngIf="!isLoading" class="h-full">
         <div class="flex flex-col md:flex-row md:justify-between mb-6">
             <div class="border-b-4 border-b-primary">
                 <h1 class="text-[22px] md:text-heading">Order Food</h1>
@@ -13,24 +13,26 @@
                     placeholder="Search food" required name="searchText" [(ngModel)]="searchText"
                     (input)="onSearchFood(searchText)">
                 <label for="SearchFood"
-                    class="absolute left-0 text-green-500 bg-white -translate-y-2 mx-4 text-xs duration-100 ease-linear peer-placeholder-shown:translate-y-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 cursor-text">Search
+                    class="absolute left-0 text-green-500 bg-transparent -translate-y-2 mx-4 text-xs duration-100 ease-linear peer-placeholder-shown:translate-y-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 cursor-text">Search
                     food</label>
             </div>
         </div>
-        <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-4">
-            <div class="flex-3 bg-[#f2f2f2] p-4">
-                <div class="flex justify-center">
+        <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-4 md:h-5/6">
+            <div class="bg-[#f2f2f2] h-5/6 px-4 py-6">
+                <div class="text-center">
                     <p class="text-sm font-semibold">SELECT A TABLE</p>
                 </div>
-                <div class="flex md:h-[350px] space-x-4 overflow-x-scroll md:flex-col md:overflow-x-hidden md:overflow-y-auto md:space-y-4 md:space-x-0">
-                    <div class="flex flex-col border-2 border-gray-500 rounded-md w-[150px] h-[200px] p-4 hover:bg-primary focus:bg-primary" tabindex="0"
-                        *ngFor="let table of tables" (click)="tableSelected()">
-                        <img [src]="baseImageUrl+'table/'+table.image" alt="" class="w-[120px] h-[120px] rounded-full">
-                        <h3 class="text-center">{{ table.tableNumber }}</h3>
+                <div class="flex p-4 md:h-full space-x-4 overflow-x-scroll md:flex-col md:overflow-x-hidden md:overflow-y-auto md:space-y-4 md:space-x-0">
+                    <div class="border-2 border-gray-500 rounded-md hover:bg-primary focus:bg-primary" tabindex="0"
+                        *ngFor="let table of tables" (click)="tableSelected(table)">
+                        <div class="flex flex-col items-center justify-center w-[150px] h-[200px]">
+                            <img [src]="baseImageUrl+'table/'+table.image" alt="" class="w-[120px] h-[120px] rounded-full">
+                            <h3 class="text-center mt-4">{{ table.tableNumber }}</h3>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="flex-1 bg-[#f2f2f2] relative">
+            <div class="bg-[#f2f2f2] relative h-full md:h-5/6 p-2">
                 <div *ngIf="!isTableSelected" class="w-full h-full semi-transparent-bg pt-6 absolute top-0 left-0">
                     <div
                         class="flex items-center justify-center w-11/12 h-64 bg-white border-2 border-primary border-dashed mx-auto">
@@ -42,24 +44,9 @@
                 </div>
                 <div class="w-full h-full p-4">
                     <p class="text-sm font-semibold">SELECT FOODS</p>
-                    <div class="flex flex-col md:h-[350px] overflow-y-auto">
-                        <div class="flex p-2" *ngFor="let food of foods">
-                            <div
-                                class="flex flex-col space-x-4 border-2 border-gray-500 bg-white rounded-md w-full p-4 md:flex-row md:space-y-0 md:space-x-4">
-                                <img [src]="baseImageUrl+'food/'+food.image" alt=""
-                                    class="w-[150px] h-[150px] rounded-full mx-auto md:my-auto">
-                                <div class="flex flex-col space-y-2">
-                                    <h3 class="text-lg font-semibold">{{ food.name }}</h3>
-                                    <p>{{ food.description }}</p>
-                                    <p class="text-primary">Price: <span class="text-xl font-semibold text-red-500">{{
-                                            food.price }}</span> BDT</p>
-                                    <p class="text-green-400">Discounted Price: <span
-                                            class="text-xl font-semibold text-green-500">{{ food.discountPrice }}</span>
-                                        BDT</p>
-                                    <button class="md:w-40 bg-primary h-10 my-2" (click)="onOrderFood(food)">Add to
-                                        Cart</button>
-                                </div>
-                            </div>
+                    <div  class="flex flex-col w-full md:h-full overflow-y-auto">
+                        <div class="flex w-full p-2" *ngFor="let food of foods">
+                            <app-food-item [food]="onOrderFood(food)"></app-food-item>
                         </div>
                     </div>
                 </div>

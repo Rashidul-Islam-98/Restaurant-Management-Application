@@ -1,36 +1,21 @@
 <div class="flex justify-end w-full h-full semi-transparent-bg absolute top-0 left-0 z-1">
-    <div class="w-full md:w-2/5 h-screen bg-white">
+    <div class="w-full md:w-1/2 h-screen bg-white">
         <div class="flex justify-between border-b-4 border-b-primary w-full my-auto">
             <h1 class="text-2xl font-semibold m-4">Cart</h1>
             <mat-icon class="m-4" (click)="onCloseCart()">close</mat-icon>
         </div>
-        <div *ngIf="isOrderFoodsExist">
-            <div class="flex flex-col w-full h-64 overflow-y-auto no-scrollbar">
-                <div class="flex justify-between w-full h-24 p-2 border-b border-b-gray-500" *ngFor="let orderedFood of orderedFoods">
-                    <div class="flex ml-4">
-                        <img [src]="baseImageUrl+'food/'+orderedFood.image" alt=""
-                            class="w-[80px] h-[80px] rounded-full md:my-auto">
-                        <div class="flex flex-col space-y-4 ml-6">
-                            <h2>{{ orderedFood.name }}</h2>
-                            <div>
-                                <button class="w-8 border border-gray-600">-</button>
-                                <button class="w-8 border border-gray-600">1</button>
-                                <button class="w-8 border border-gray-600">+</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-col space-y-4 mr-6">
-                        <mat-icon class="justify-self-end">delete</mat-icon>
-                        <p>Price: {{ orderedFood.price }} BDT</p>
-                    </div>
-                </div>
+        <div *ngIf="isOrderFoodsExist" class="flex flex-col w-full h-64 overflow-y-auto no-scrollbar">
+            <div *ngFor="let orderedFood of orderedFoods">
+                <app-cart-item [food]="onOrderFood(orderedFood)" (priceChanged)="onTotalPriceChanged($event)"></app-cart-item>
             </div>
+        </div>
+        <div *ngIf="totalPrice>0">
             <div class="flex justify-between border-b-1 border-b-gray-500 w-full my-auto">
                 <h1 class="text-xl m-4">Subtotal</h1>
-                <p>9300 BDT</p>
+                <h3 class="m-4">{{ totalPrice }} BTD</h3>
             </div>
             <div class="p-5">
-                <button class="w-full h-12 bg-primary hover:bg-secondary">Confirm Order</button>
+                <button class="w-full h-12 bg-primary hover:bg-secondary" (click)="onSubmitOrder()">Confirm Order</button>
             </div>
         </div>
     </div>

@@ -74,18 +74,18 @@
         <div class="flex justify-between w-full md:space-x-6 md:justify-end">
             <div>
                 <label for="page">Items per Page: </label>
-                <select id="page" class="border bottom-1">
-                    <option>5</option>
-                    <option>10</option>
-                    <option>20</option>
+                <select id="page" class="border bottom-1" [(ngModel)]="Per_Page" (change)="loadEmployeeData()">
+                    <option [value]="10">10</option>
+                    <option [value]="15">15</option>
+                    <option [value]="20">20</option>
                 </select>
             </div>
             <div>
-                1-5 of 5
+                {{ getEmployeeResponse.from}}-{{ getEmployeeResponse.to}} of {{ getEmployeeResponse.total}}
             </div>
             <div>
-                <mat-icon class="text-sm text-gray-400">arrow_back_ios</mat-icon>
-                <mat-icon class="text-sm text-gray-400">arrow_forward_ios</mat-icon>
+                <button type="button" [disabled]="Page<=1" (click)="onChangePage(-1)"><mat-icon [ngClass]="{ 'text-gray-400' : Page<=1 }" class="text-sm">arrow_back_ios</mat-icon></button>
+                <button type="button" [disabled]="Page>=getEmployeeResponse.last_page" (click)="onChangePage(1)"><mat-icon [ngClass]="{ 'text-gray-400' : Page>=getEmployeeResponse.last_page }" class="text-sm">arrow_forward_ios</mat-icon></button>
             </div>
         </div>
     </div>

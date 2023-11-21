@@ -57,7 +57,7 @@
                                         <mat-icon class="hover:text-primary" (click)="onDeleteEmployee(employee.employeeTableId)">remove_circle_outline</mat-icon>
                                     </div>
                                 </div>
-                                <mat-icon class="text-yellow-600" (click)="onAddEmployeeToTable(table)">add_circle_outline</mat-icon>
+                                <mat-icon class="text-yellow-600" (click)=" onAddEmployeeToTable(table)">add_circle_outline</mat-icon>
                             </td>
                             <td class="p-4">
                                 <div class="flex space-x-3" (click)="onDelete(table.id)">
@@ -69,25 +69,25 @@
                 </table>
             </div>
         </div>
-        <div *ngIf="isAddEmployeeMode">
+        <div *ngIf="isAddEmployeeMode" class="flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">  
             <app-add-table-employee (loadTable)="loadTableData()"></app-add-table-employee>
         </div>
         <!--For pagination-->
         <div class="flex justify-between w-full md:space-x-6 md:justify-end">
             <div>
                 <label for="page">Items per Page: </label>
-                <select id="page" class="border bottom-1">
-                    <option>5</option>
-                    <option>10</option>
-                    <option>20</option>
+                <select id="page" class="border bottom-1" [(ngModel)]="Per_Page" (change)="loadTableData()">
+                    <option [value]="10">10</option>
+                    <option [value]="15">15</option>
+                    <option [value]="20">20</option>
                 </select>
             </div>
             <div>
-                1-5 of 5
+                {{ getTableResponse.from}}-{{ getTableResponse.to}} of {{ getTableResponse.total}}
             </div>
             <div>
-                <mat-icon class="text-sm text-gray-400">arrow_back_ios</mat-icon>
-                <mat-icon class="text-sm text-gray-400">arrow_forward_ios</mat-icon>
+                <button type="button" [disabled]="Page<=1" (click)="onChangePage(-1)"><mat-icon [ngClass]="{ 'text-gray-400' : Page<=1 }" class="text-sm">arrow_back_ios</mat-icon></button>
+                <button type="button" [disabled]="Page>=getTableResponse.last_page" (click)="onChangePage(1)"><mat-icon [ngClass]="{ 'text-gray-400' : Page>=getTableResponse.last_page }" class="text-sm">arrow_forward_ios</mat-icon></button>
             </div>
         </div>
     </div>

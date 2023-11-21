@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { baseImageUrl, baseUrl } from 'src/environments/environment';
@@ -9,19 +9,24 @@ import { baseImageUrl, baseUrl } from 'src/environments/environment';
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent {
+  getEmployeeResponse: any;
   employees: any[] = [];
   baseImageUrl = baseImageUrl;
   isLoading: boolean = false;
+  Page: number = 1;
+  Per_Page: number = 10;
 
   constructor(private http: HttpClient, private toastr: ToastrService){}
 
   ngOnInit(){
-    this.isLoading = true;
     this.loadEmployeeData();
   }
 
   loadEmployeeData(){
-    this.http.get<any>(`${baseUrl}Employee/datatable`).subscribe(res=>{
+    this.isLoading = true;
+    let queryParams = new HttpParams().append("Page",this.Page).append("Per_page",this.Per_Page);
+    this.http.get<any>(`${baseUrl}Employee/datatable`, {params:queryParams}).subscribe(res=>{
+      this.getEmployeeResponse = res;
       this.employees = res.data;
       this.isLoading = false;
     })
@@ -33,5 +38,10 @@ export class EmployeeListComponent {
       this.toastr.success("Ok!","Employee is deleted.");
       this.loadEmployeeData();
     });
+  }
+
+  onChangePage(page: number){
+    this.Page+=page;
+    this.loadEmployeeData();
   }
 }

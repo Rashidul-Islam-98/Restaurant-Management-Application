@@ -1,9 +1,9 @@
 <div class="flex w-full">
-    <div class="flex-1 hidden md:block md:h-screen w-[256px]">
+    <div [ngClass]="{'open-sidebar': isSidebarOpen}" class="flex-1 hidden md:block md:h-screen w-[256px]">
         <app-sidebar></app-sidebar>
     </div>
     <div class="flex-1">
-        <div class="w-screen md:w-[calc(100vw-256px)] h-[68px] bg-primary fixed"><app-header></app-header></div>
+        <div class="w-screen md:w-[calc(100vw-256px)] h-[68px] bg-primary fixed"><app-header (openSidebar)="openSidebarMenu($event)"></app-header></div>
         <div class="w-screen md:w-[calc(100vw-256px)] mt-[68px] h-[calc(100vh-68px)] overflow-y-auto relative">
             <router-outlet></router-outlet>   
             <app-cart *ngIf="isCartOpen"></app-cart>

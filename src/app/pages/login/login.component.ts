@@ -1,7 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service'
 import { AuthResponse } from './auth-response.model';
 import { baseUrl } from '../../../environments/environment';
@@ -14,18 +12,17 @@ import { baseUrl } from '../../../environments/environment';
 export class LoginComponent {
   isLoading: boolean = false;
   isError: boolean = false;
+  userName: string = "admin@mail.com";
+  password: string = "Admin@123";
   constructor(private http: HttpClient, 
-    private router: Router,
     private authService: AuthService){}
 
-  onSubmit(form: NgForm){
-    const { username, password } = form.value;
-    const userName = username;
+  onSubmit(){
     this.isLoading = true;
     this.http.post<AuthResponse>(`${baseUrl}Auth/SignIn`,
     {
-      userName,
-      password
+      userName: this.userName,
+      password: this.password
     }).subscribe(response=>{
       this.authService.login(response);
       this.isLoading = false;

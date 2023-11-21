@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { baseImageUrl } from '../../../environments/environment'
 
@@ -10,6 +10,7 @@ import { baseImageUrl } from '../../../environments/environment'
 export class SidebarComponent implements OnInit{
   baseImageUrl = baseImageUrl;
   user: any = null;
+
   constructor(private authService: AuthService){}
 
   ngOnInit(): void {
