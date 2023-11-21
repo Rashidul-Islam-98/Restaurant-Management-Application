@@ -7,56 +7,56 @@ https://restaurant-management-application.vercel.app/login
 
 ### Preview
 
-## Login Page
+### Login Page
 ![Login Page](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/login.jpg)
 
-# Login Page Responsive
+### Login Page Responsive
 ![Login Page](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/loginRes.JPG)
 
-## Home Page
+### Home Page
 ![Home Page](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/home.JPG)
 
-# Home page with Responsive Menu
+### Home page with Responsive Menu
 ![Home Page with responsive menue](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/headerRes.JPG)
 
-## Employee Page
+### Employee Page
 ![Employee List](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/employee.JPG)
 
-## Employee Page Responsive
+### Employee Page Responsive
 ![Employee List Responsive](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/employeeRes.JPG)
 
-## Add Employee Page
+### Add Employee Page
 ![Add Employee](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/addEmployee1.JPG)
 ![Add Employee page 2](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/addEmployee2.JPG)
 
-# Add Employee Page Responsive
+### Add Employee Page Responsive
 ![Add Employee Responsive](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/addEmployeeRes.JPG)
 
-## Table Page
+### Table Page
 ![Table List](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/tablee.JPG)
 
-# Order Card Responsive
+### Table Page Responsive
 ![Table Responsive](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/tableRes.JPG)
-## Assign Employee Modal
+### Assign Employee Modal
 ![Assign Employee](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/assign.JPG)
 
-# Assign Employee Modal
+### Assign Employee Modal
 ![Assign Employee Responsive](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/assignRes.JPG)
 
-## Food Order Page
+### Food Order Page
 ![Food Order](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/orderFood.JPG)
 ![Food Order 2](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/orderFood2.JPG)
 
-## Added Food to Cart
+### Added Food to Cart
 ![Cart](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/cart.JPG)
 
-# Added Food Responsive
+### Added Food Responsive
 ![cart Responsive](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/cartRes.JPG)
 
-## Order Card Page
+### Order Card Page
 ![Order Card](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/OrderPage.JPG)
 
-# Order Card Responsive
+### Order Card Responsive
 ![Order Card Responsive](https://github.com/Rashidul-Islam-98/Screenshots/blob/main/OrderPageRes.JPG)
 
 ## Features
