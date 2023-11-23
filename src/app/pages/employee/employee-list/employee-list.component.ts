@@ -1,6 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
 import { baseImageUrl, baseUrl } from 'src/environments/environment';
 
 @Component({
@@ -16,7 +15,7 @@ export class EmployeeListComponent {
   Page: number = 1;
   Per_Page: number = 10;
 
-  constructor(private http: HttpClient, private toastr: ToastrService){}
+  constructor(private http: HttpClient){}
 
   ngOnInit(){
     this.loadEmployeeData();
@@ -35,7 +34,6 @@ export class EmployeeListComponent {
   onDelete(id: string){
     this.isLoading
     this.http.delete(`${baseUrl}Employee/delete/${id}`).subscribe(res=>{
-      this.toastr.success("Ok!","Employee is deleted.");
       this.loadEmployeeData();
     });
   }

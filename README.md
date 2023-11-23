@@ -5,6 +5,10 @@ The BSS Restaurant Management Application is a comprehensive tool designed to st
 ### Link
 https://restaurant-management-application.vercel.app/login
 
+### Username and Password
+username: admin@mail.com
+password: Admin@123
+
 ### Preview
 
 ### Login Page

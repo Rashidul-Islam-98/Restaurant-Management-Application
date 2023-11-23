@@ -29,6 +29,7 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { FoodItemComponent } from './components/food-item/food-item.component';
 import { AllOrdersComponent } from './pages/all-orders/all-orders.component';
 import { OrderCardComponent } from './components/order-card/order-card.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { OrderCardComponent } from './components/order-card/order-card.component
     CartItemComponent,
     FoodItemComponent,
     AllOrdersComponent,
-    OrderCardComponent
+    OrderCardComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,11 @@ import { OrderCardComponent } from './components/order-card/order-card.component
     BrowserAnimationsModule,
     MatIconModule,
     HttpClientModule,
-    ToastrModule.forRoot({})
+    ToastrModule.forRoot({  
+      positionClass:'top-left',  
+      closeButton: true
+      } 
+    )
   ],
   providers: [
     {

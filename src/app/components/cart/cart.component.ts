@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
 import { ISaveFood } from 'src/app/models/save-food.model';
 import { FoodService } from 'src/app/services/food.service';
+import { OrderService } from 'src/app/services/order.service';
 import { TableService } from 'src/app/services/table.service';
 import { baseImageUrl, baseUrl } from 'src/environments/environment';
 
@@ -17,6 +17,7 @@ export class CartComponent implements OnInit {
   table: any;
   orderedFoods: ISaveFood[] = [];
   isOrderFoodsExist: boolean = false;
+  isOrderPlaced: boolean = false;
   sendFoodDetails: any = [
     {
       foodId: 0,
@@ -30,7 +31,7 @@ export class CartComponent implements OnInit {
   constructor(private foodService: FoodService, 
     private tableService: TableService,
     private http: HttpClient,
-    private toastr: ToastrService) { }
+    private orderService: OrderService) { }
 
   ngOnInit() {
     this.tableService.table.subscribe(data => {
@@ -74,6 +75,9 @@ export class CartComponent implements OnInit {
   }
 
   onSubmitOrder() {
+    this.orderService.isOrderConfirmed.next(true);
+    this.foodService.isCartOpen.next(false);
+    this.isOrderPlaced = false;
     this.sendFoodDetails = this.sendFoodDetails.filter((item: any )=> item.foodId !== 0);
     this.http.post(`${baseUrl}Order/create`,{
       tableId: this.table.id,
@@ -82,7 +86,6 @@ export class CartComponent implements OnInit {
       phoneNumber: null,
       items: this.sendFoodDetails
     }).subscribe(response => {
-      this.toastr.success("Ok!","Oreder is successfully placed.");
       this.orderedFoods = [];
       this.foodService.isCartOpen.next(false);
     })

@@ -1,54 +1,55 @@
-<div class="m-2 md:mx-[60px] md:my-[40px] h-full">
-    <div *ngIf="isLoading" class="flex justify-center items-center h-[calc(100vh-68px)]">
+<div class="p-2 w-screen md:w-full md:px-[60px] h-screen min-h-[calc(100vh-68px)]">
+    <div *ngIf="isLoading"
+        class="flex justify-center items-center w-screen h-screen bg-black bg-opacity-60 z-50 absolute top-0 left-0">
         <app-spinner></app-spinner>
     </div>
-    <div *ngIf="!isLoading" class="h-full">
-        <div class="flex flex-col md:flex-row md:justify-between mb-6">
-            <div class="border-b-4 border-b-primary">
-                <h1 class="text-[22px] md:text-heading">Order Food</h1>
-            </div>
-            <div class="relative">
-                <input type="text" id="SearchFood"
-                    class="w-full md:w-[256px] h-[56px] p-4 rounded-md border bg-transparent focus:outline-none focus:border-2 focus:border-green-500 peer placeholder:text-transparent"
-                    placeholder="Search food" required name="searchText" [(ngModel)]="searchText"
-                    (input)="onSearchFood(searchText)">
-                <label for="SearchFood"
-                    class="absolute left-0 text-green-500 bg-transparent -translate-y-2 mx-4 text-xs duration-100 ease-linear peer-placeholder-shown:translate-y-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 cursor-text">Search
-                    food</label>
+
+    <div class="flex flex-col justify-between mb-8 md:flex-row">
+        <h1 class="text-[22px] md:text-heading border-b-4 border-b-primary pb-1">Order Food</h1>
+        <div class="flex h-full mt-5 relative">
+            <input type="text" id="SearchFood"
+                class="w-full md:w-[256px] h-[56px] p-4 rounded-md border bg-transparent focus:outline-none focus:border-2 focus:border-green-500 peer placeholder:text-transparent"
+                placeholder="Search food" required name="searchText" [(ngModel)]="searchText"
+                (input)="onSearchFood(searchText)">
+            <label for="SearchFood"
+                class="absolute left-0 text-green-500 bg-white duration-300 transform -translate-y-2 mx-4 text-xs ease-linear peer-placeholder-shown:translate-y-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-translate-y-2 cursor-text">Search
+                food</label>
+        </div>
+    </div>
+
+
+    <div class="flex flex-col md:flex-row w-full -m-3">
+        <div class="w-full md:w-1/3 p-3">
+            <div class="bg-[#f2f2f2] p-5 ml-4">
+                <h5 class="font-bold text-center mb-2">SELECT A TABLE</h5>
+                <div class="flex gap-5 md:flex-col w-full md:h-[calc(100vh-305px)] overflow-y-hidden overflow-x-scroll md:overflow-x-hidden md:overflow-y-scroll pr-2 pb-4">
+                    <div class="flex flex-col items-center border-2 border-gray-500 rounded-md p-2 hover:bg-primary focus:bg-primary"
+                        tabindex="0" *ngFor="let table of tables" (click)="tableSelected(table)">
+                        <div class="flex flex-col space-y-2 items-center justify-center w-[180px] h-[200px]">
+                            <img [src]="baseImageUrl+'table/'+table.image" alt="" class="w-[160px] h-[160px] rounded-full">
+                            <p class="pb-1 text-lg font-semibold">{{ table.tableNumber }}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-4 md:h-5/6">
-            <div class="bg-[#f2f2f2] h-5/6 px-4 py-6">
-                <div class="text-center">
-                    <p class="text-sm font-semibold">SELECT A TABLE</p>
-                </div>
-                <div class="flex p-4 md:h-full space-x-4 overflow-x-scroll md:flex-col md:overflow-x-hidden md:overflow-y-auto md:space-y-4 md:space-x-0">
-                    <div class="border-2 border-gray-500 rounded-md hover:bg-primary focus:bg-primary" tabindex="0"
-                        *ngFor="let table of tables" (click)="tableSelected(table)">
-                        <div class="flex flex-col items-center justify-center w-[150px] h-[200px]">
-                            <img [src]="baseImageUrl+'table/'+table.image" alt="" class="w-[120px] h-[120px] rounded-full">
-                            <h3 class="text-center mt-4">{{ table.tableNumber }}</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-[#f2f2f2] relative h-full md:h-5/6 p-2">
-                <div *ngIf="!isTableSelected" class="w-full h-full semi-transparent-bg pt-6 absolute top-0 left-0">
+        <div class="w-full md:w-2/3 p-3 ml-3">
+            <div class="bg-[#f2f2f2] p-5 relative">
+                <div *ngIf="!isTableSelected" class="flex w-full h-full items-center justify-center semi-transparent-bg absolute top-0 left-0">
                     <div
-                        class="flex items-center justify-center w-11/12 h-64 bg-white border-2 border-primary border-dashed mx-auto">
+                        class="flex items-center justify-center w-11/12 h-56 bg-white border-2 border-primary border-dashed mx-auto">
                         <div class="flex flex-col items-center justify-center">
-                            <mat-icon class="text-primary">new_releases</mat-icon>
-                            <h1 class="font-bold">At First Select A Table</h1>
+                            <div class="text-6xl">
+                                <mat-icon inline="true" class="text-primary">new_releases</mat-icon>
+                            </div>
+                            <h1 class="text-2xl font-bold">At First Select A Table</h1>
                         </div>
                     </div>
                 </div>
-                <div class="w-full h-full p-4">
-                    <p class="text-sm font-semibold">SELECT FOODS</p>
-                    <div  class="flex flex-col w-full md:h-full overflow-y-auto">
-                        <div class="flex w-full p-2" *ngFor="let food of foods">
-                            <app-food-item [food]="onOrderFood(food)"></app-food-item>
-                        </div>
-                    </div>
+
+                <h5 class="font-bold text-left mb-2">SELECT FOODS</h5>
+                <div class="flex flex-col gap-5 h-[calc(100vh-305px)] overflow-y-scroll pr-2">
+                    <app-food-item [food]="onOrderFood(food)" *ngFor="let food of foods"></app-food-item>
                 </div>
             </div>
         </div>

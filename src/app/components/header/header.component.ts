@@ -20,6 +20,10 @@ export class HeaderComponent implements OnInit{
     this.foodService.getOrderedFoodChanges().subscribe((orderedFoods: ISaveFood[]) => {
       this.totalOrders = orderedFoods.length;
     });
+
+    this.foodService.isCartOpen.subscribe(response => {
+      this.cartOpen = response;
+    })
   }
 
   onNavbarToggle(){
@@ -29,6 +33,5 @@ export class HeaderComponent implements OnInit{
 
   onCartToggle(){
     this.foodService.isCartOpen.next(!this.cartOpen);
-    this.cartOpen = !this.cartOpen;
   }
 }

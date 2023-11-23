@@ -16,7 +16,9 @@ export class TableListComponent {
   baseImageUrl = baseImageUrl;
   isLoading: boolean = false;
   isOccupied: boolean = false;
-  isAddEmployeeMode = false;
+  isAddEmployeeMode: boolean = false;
+  isSureToDelete: boolean = false;
+  employeeId: string = "";
   Page: number = 1;
   Per_Page: number = 10;
   show: boolean = true;
@@ -53,11 +55,20 @@ export class TableListComponent {
     })
   }
 
-  onDeleteEmployee(id: string){
-    this.isLoading = true;
-    this.http.delete(`${baseUrl}EmployeeTable/delete/${id}`).subscribe(data => {
+  onClickDeleteEmployee(id: string){
+    this.isSureToDelete = true;
+    this.employeeId = id;
+  }
+
+  onDeleteEmployee() {
+    this.isSureToDelete = false;
+    this.http.delete(`${baseUrl}EmployeeTable/delete/${this.employeeId}`).subscribe(data => {
       this.loadTableData();
-    })
+    });
+  }
+
+  onCancelDelete() {
+    this.isSureToDelete = false;
   }
 
   onChangePage(page: number){

@@ -17,3 +17,30 @@ body { margin: 0; font-family: "Josefin Sans", sans-serif; }
         @apply block fixed top-0 left-0 z-40;
     }
 }
+
+@keyframes slide-vertically {
+    from {
+      transform: translateY(-1000px);
+    }
+    to {
+      transform: translateY(0);
+    }
+}
+
+@keyframes slide-horizontally {
+    from {
+      transform: translateX(2000px);
+    }
+    to {
+      transform: translateX(0);
+    }
+}
+
+@keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
