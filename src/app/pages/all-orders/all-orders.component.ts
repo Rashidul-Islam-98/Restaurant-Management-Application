@@ -46,7 +46,6 @@ export class AllOrdersComponent implements OnInit {
     }
   ];
   Page: number = 1;
-  pages: number[] = [];
   isSearchClicked: boolean = false;
 
   constructor(private http: HttpClient){}
@@ -61,13 +60,10 @@ export class AllOrdersComponent implements OnInit {
   }
 
   loadOrderData(){
-    this.pages = [];
-    let queryParams = new HttpParams().append("Page", this.Page).append("Search",this.searchStatus);
+    let queryParams = new HttpParams().append("page", this.Page).append("Search",this.searchStatus);
     this.http.get<any>(`${baseUrl}Order/datatable`, {params:queryParams}).subscribe(res=>{
       this.getAllOrdersResponse = res;
-      for(let i = 1;i<=this.getAllOrdersResponse.last_page;i++){
-        this.pages.push(i);
-      }
+      this.Page = this.getAllOrdersResponse.current_page;
       this.allorders = res.data;
       this.isLoading = false;
     })
@@ -85,13 +81,18 @@ export class AllOrdersComponent implements OnInit {
     this.loadOrderData();
   }
 
-  onChangePage(page: number){
-    this.Page+=page;
-    this.loadOrderData();
-  }
+  // onChangePage(page: number){
+  //   this.Page+=page;
+  //   this.loadOrderData();
+  // }
 
-  onLoadSpecificPage(value: number){
-    this.Page = value;
+  // onLoadSpecificPage(value: number){
+  //   this.Page = value;
+  //   this.loadOrderData();
+  // }
+
+  onPageChange(event: number): void {
+    this.Page = event;
     this.loadOrderData();
   }
 }

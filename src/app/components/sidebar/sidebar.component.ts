@@ -1,6 +1,8 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { baseImageUrl } from '../../../environments/environment'
+import { FoodService } from 'src/app/services/food.service';
+import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,7 +13,9 @@ export class SidebarComponent implements OnInit{
   baseImageUrl = baseImageUrl;
   user: any = null;
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService,
+    private foodService: FoodService,
+    private menuService: MenuService){}
 
   ngOnInit(): void {
     this.user = this.authService.getUser();
@@ -19,6 +23,10 @@ export class SidebarComponent implements OnInit{
 
   onLogOut(){
     this.authService.logout();
+  }
+
+  onClickMenu(){
+    this.menuService.isSidebarOpen.next(false);
   }
   
 }

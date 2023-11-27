@@ -14,7 +14,7 @@ body { margin: 0; font-family: "Josefin Sans", sans-serif; }
     }
 
     .open-sidebar {
-        @apply block fixed top-0 left-0 z-40;
+        @apply block w-screen fixed top-0 left-0 z-20;
     }
 }
 

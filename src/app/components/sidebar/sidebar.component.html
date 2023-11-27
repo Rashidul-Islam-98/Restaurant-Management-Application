@@ -1,4 +1,4 @@
-<div class="flex flex-col bg-white w-full h-full border border-b-gray-300">
+<div class="flex flex-col bg-white w-64 z-50 h-full border border-b-gray-300">
     <div class="flex items-center h-[68px] border-b-2 border-b-gray-200">
         <div class="p-4">
             <img src="https://randomuser.me/api/portraits/women/85.jpg" alt="" class="h-[40px] w-[40px] rounded-full">
@@ -11,37 +11,37 @@
     <div class="flex flex-col h-full justify-between">
         <div class="flex flex-col space-y-4 m-2">
             <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                <div class="flex items-center">
+                <div class="flex items-center p-2" (click)="onClickMenu()">
                     <mat-icon class="ml-3 text-menuColor">home</mat-icon>
                     <span class="ml-6 text-sm font-medium text-menuColor">Home</span>
                 </div>
             </a>
             <a routerLink="/employees" routerLinkActive="active">
-                <div class="flex items-center">
+                <div class="flex items-center p-2" (click)="onClickMenu()">
                     <mat-icon class="ml-3 text-menuColor">groups</mat-icon>
                     <span class="ml-6 text-sm font-medium text-menuColor">All Employees List</span>
                 </div>
             </a>
             <a routerLink="/tables" routerLinkActive="active">
-                <div class="flex items-center">
+                <div class="flex items-center p-2" (click)="onClickMenu()">
                     <mat-icon class="ml-3 text-menuColor">assignment_ind</mat-icon>
                     <span class="ml-6 text-sm font-medium text-menuColor">All Tables List</span>
                 </div>
             </a>
             <a routerLink="/foods" routerLinkActive="active">
-                <div class="flex items-center">
+                <div class="flex items-center p-2" (click)="onClickMenu()">
                     <mat-icon class="ml-3 text-menuColor">food_bank</mat-icon>
                     <span class="ml-6 text-sm font-medium text-menuColor">All Foods List</span>
                 </div>
             </a>
             <a routerLink="/order-food" routerLinkActive="active">
-                <div class="flex items-center">
+                <div class="flex items-center p-2" (click)="onClickMenu()">
                     <mat-icon class="ml-3 text-menuColor">assignment_turned_in</mat-icon>
                     <span class="ml-6 text-sm font-medium text-menuColor">Order Food</span>
                 </div>
             </a>
             <a routerLink="all-orders" routerLinkActive="active">
-                <div class="flex items-center">
+                <div class="flex items-center p-2" (click)="onClickMenu()">
                     <mat-icon class="ml-3 text-menuColor">list</mat-icon>
                     <span class="ml-6 text-sm font-medium text-menuColor">All Orders</span>
                 </div>

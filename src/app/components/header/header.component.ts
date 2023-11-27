@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ISaveFood } from 'src/app/models/save-food.model';
 import { FoodService } from 'src/app/services/food.service';
+import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
   selector: 'app-header',
@@ -12,9 +13,8 @@ export class HeaderComponent implements OnInit{
   cartOpen: boolean = false;
   totalOrders: number = 0;
 
-  @Output() openSidebar = new EventEmitter<boolean>();
-
-  constructor(private foodService: FoodService){}
+  constructor(private foodService: FoodService,
+    private menuService: MenuService){}
 
   ngOnInit(){
     this.foodService.getOrderedFoodChanges().subscribe((orderedFoods: ISaveFood[]) => {
@@ -24,11 +24,14 @@ export class HeaderComponent implements OnInit{
     this.foodService.isCartOpen.subscribe(response => {
       this.cartOpen = response;
     })
+
+    this.menuService.isSidebarOpen.subscribe(response => {
+      this.navbarOpen = response;
+    })
   }
 
   onNavbarToggle(){
-    this.openSidebar.emit(!this.navbarOpen);
-    this.navbarOpen = !this.navbarOpen;
+    this.menuService.isSidebarOpen.next(!this.navbarOpen);
   }
 
   onCartToggle(){
