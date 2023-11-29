@@ -30,6 +30,7 @@ import { FoodItemComponent } from './components/food-item/food-item.component';
 import { AllOrdersComponent } from './pages/all-orders/all-orders.component';
 import { OrderCardComponent } from './components/order-card/order-card.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -63,12 +64,14 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    CommonModule,
     BrowserAnimationsModule,
     MatIconModule,
     HttpClientModule,
     NgxPaginationModule,
     ToastrModule.forRoot({  
-      positionClass:'top-left',  
+      timeOut: 1500,
+      positionClass:'toast-top-right',  
       closeButton: true
       } 
     )

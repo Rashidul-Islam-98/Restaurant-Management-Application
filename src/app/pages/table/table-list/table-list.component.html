@@ -1,4 +1,4 @@
-<div class="md:px-[60px] md:py-10 overflow-y-auto h-[calc(100vh-68px)]">
+<div class="md:px-[60px] md:py-10 overflow-y-auto">
     <div *ngIf="isLoading"
         class="flex justify-center items-center w-screen h-screen bg-black bg-opacity-60 z-50 absolute top-0 left-0">
         <app-spinner></app-spinner>
@@ -52,14 +52,15 @@
                                 <mat-icon *ngIf="!table.isOccupied" class="text-green-700">check_circle</mat-icon>
                                 <mat-icon *ngIf="table.isOccupied" class="text-red-700">check_circle</mat-icon>
                             </td>
-                            <td class="p-4">
-                                <div class="flex flex-col space-y-2" *ngFor="let employee of table.employees">
-                                    <div class="flex items-center space-x-1">
-                                        <p class="text-lg">{{ employee.name }}</p>
-                                        <mat-icon class="hover:text-primary"
+                            <td class="flex flex-col space-y-2 p-4">
+                                <div *ngFor="let employee of table.employees">
+                                    <div class="name-container items-center justify-center bg-[#dfdfdf] rounded-full px-[10px] py-[5px]">
+                                        <p class=" font-base truncate">{{ employee.name }}</p>
+                                        <mat-icon class="hover:text-primary ml-1"
                                             (click)="onClickDeleteEmployee(employee.employeeTableId)">remove_circle_outline</mat-icon>
                                     </div>
                                 </div>
+                                
                                 <mat-icon class="text-yellow-600"
                                     (click)=" onAddEmployeeToTable(table)">add_circle_outline</mat-icon>
                             </td>

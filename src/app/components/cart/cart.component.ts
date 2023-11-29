@@ -60,6 +60,10 @@ export class CartComponent implements OnInit {
     this.foodService.isCartOpen.next(false);
   }
 
+  onModalClick(event: Event) {
+    event.stopPropagation();
+  }
+
   onOrderFood(food: any) {
     return food;
   }

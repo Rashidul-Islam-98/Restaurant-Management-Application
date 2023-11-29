@@ -1,4 +1,4 @@
-<div class="flex flex-col space-y-4 relative">
+<div class="flex flex-col p-4 bg-white rounded-md shadow-sm shadow-black space-y-4 relative">
     <div class="flex justify-between">
         <div>
           <p>{{ order.orderNumber }}</p>
@@ -7,7 +7,7 @@
         <button [disabled]="order.orderStatus !== 'Pending'" class="flex items-center justify-center w-10 h-10 rounded-full border group" (click)="onDeleteCard(order.id)">
             <mat-icon [ngClass]="{ 'disable-icon' : order.orderStatus !== 'Pending'}" class="text-red-500">delete</mat-icon></button>
     </div>
-    <div class="flex flex-col w-full h-52 overflow-y-auto">
+    <div class="flex flex-col h-52 overflow-y-auto">
         <div class="flex space-x-3 p-2" *ngFor="let food of order.orderItems">
             <img [src]="baseImageUrl+'food/'+food.food.image" class="w-20 h-20 rounded-full">
             <div class="flex flex-col w-full justify-between">
@@ -19,13 +19,13 @@
             </div>
         </div>
     </div>
-    <div class="flex w-full justify-between">
+    <div class="flex justify-between">
         <p>Total Items: <span class="font-semibold">{{ order.orderItems.length }}</span></p>
         <p>Table: <span class="font-semibold">{{ order.table.tableNumber }}</span></p>
     </div>
-    <div class="flex w-full justify-between">
+    <div class="flex justify-between">
         <p>Total: <span class="text-green-500">{{ order.amount }} BDT</span></p>
-        <div *ngIf="!isUpdateStatus" class="flex space-x-4">
+        <div *ngIf="!isUpdateStatus" class="flex">
           <p class="text-green-500 font-semibold cursor-pointer">{{ order.orderStatus }}</p>
             <mat-icon class="text-gray-400 hover:text-green-600" (click)="onUpdateStatusMode()">update</mat-icon>
         </div>

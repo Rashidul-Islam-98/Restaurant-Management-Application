@@ -20,6 +20,6 @@ export class FoodItemComponent {
   onOrderFood(food: ISaveFood){
     this.isClicked = true;
     this.foodService.orderFood(food);
-    this.toastr.success("Successfully added food.");
+    this.toastr.success("Food Added to Cart.", "Success!");
   }
 }

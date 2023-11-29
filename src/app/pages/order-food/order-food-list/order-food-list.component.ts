@@ -14,6 +14,7 @@ export class OrderFoodListComponent implements OnInit{
   baseImageUrl = baseImageUrl;
   isLoading = true;
   isTableSelected = false;
+  tableNumber: number = 0;
   searchText: string = "";
   tables: any = [];
   foods: any = [];
@@ -46,6 +47,9 @@ export class OrderFoodListComponent implements OnInit{
   tableSelected(table: any){
     this.isTableSelected = true;
     this.tableService.table.next(table);
+    this.tableNumber = table.tableNumber;
+    this.foodService.deleteAllFoods();
+    this.loadFoodData();
   }
 
   onSearchFood(searchText: string){

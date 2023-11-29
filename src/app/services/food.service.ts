@@ -13,6 +13,11 @@ export class FoodService {
         this.orderedFoodChanged.next(this.orderedFoods.slice());
     }
 
+    deleteAllFoods(){
+        this.orderedFoods = [];
+        this.orderedFoodChanged.next([]);
+    }
+
     deleteFood(food: ISaveFood){
         this.orderedFoods = this.orderedFoods.filter(item => item.id !== food.id);
         this.orderedFoodChanged.next(this.orderedFoods.slice());

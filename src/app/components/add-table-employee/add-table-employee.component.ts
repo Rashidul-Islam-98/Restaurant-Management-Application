@@ -59,6 +59,10 @@ export class AddTableEmployeeComponent implements OnInit{
     this.tableService.isAddEmployeeMode.next(false);
   }
 
+  onModalClick(event: Event) {
+    event.stopPropagation();
+  }
+
   onToggleIsAddingEmployee(){
     this.isAddingEmployee = !this.isAddingEmployee;
   }

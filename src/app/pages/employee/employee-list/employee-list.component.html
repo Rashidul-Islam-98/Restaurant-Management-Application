@@ -1,4 +1,4 @@
-<div class="md:px-[60px] md:py-10 overflow-y-auto h-[calc(100vh-68px)]">
+<div class="md:px-[60px] md:py-10 overflow-y-auto">
     <div *ngIf="isLoading"
         class="flex justify-center items-center w-screen h-screen bg-black bg-opacity-60 z-50 absolute top-0 left-0">
         <app-spinner></app-spinner>
@@ -45,11 +45,12 @@
                                 <img [src]="baseImageUrl+'user/'+employee.user.image" alt=""
                                     class="h-[40px] w-[40px] rounded-full">
                             </td>
-                            <td class="flex items-center p-4">
-                                <p class="w-24 truncate">{{ employee.user.fullName }}</p><mat-icon>star</mat-icon>
+                            <td class="name-container p-4">
+                                <p class="truncate self-center">{{ employee.user.fullName }}</p>
+                                <mat-icon class=" self-center justify-self-start">star</mat-icon>
                             </td>
                             <td class="p-4">
-                                <p class="w-24 truncate">{{ employee.user.email }}</p>
+                                <p class="truncate">{{ employee.user.email }}</p>
                             </td>
                             <td class="p-4">
                                 {{ employee.user.phoneNumber }}

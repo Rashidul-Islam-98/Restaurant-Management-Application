@@ -28,6 +28,10 @@ export class SidebarComponent implements OnInit{
   onClickMenu(){
     this.menuService.isSidebarOpen.next(false);
   }
+
+  onSidebarClick(event: Event) {
+    event.stopPropagation();
+  }
   
 }
 

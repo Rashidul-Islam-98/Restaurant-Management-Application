@@ -1,8 +1,9 @@
-<div class="md:px-[60px] md:py-10 overflow-y-auto min-h-[calc(100vh-68px)]">
-    <div *ngIf="isLoading" class="flex justify-center items-center w-screen h-screen bg-black bg-opacity-60 z-50 absolute top-0 left-0">
+<div class="md:px-[60px] md:py-10 w-full overflow-y-auto">
+    <div *ngIf="isLoading"
+        class="flex justify-center items-center w-screen h-screen bg-black bg-opacity-60 z-50 absolute top-0 left-0">
         <app-spinner></app-spinner>
     </div>
-    <div>
+    <div class="w-full">
         <div class="flex flex-col space-y-4 md:space-y-0 md:flex-row md:justify-between mb-6">
             <div class="w-48 px-4 pt-2">
                 <h1 class="text-[22px] md:text-heading  border-b-4 border-b-primary">All Orders</h1>
@@ -18,7 +19,8 @@
                 <!-- Dropdown menu -->
                 <div *ngIf="isSearchClicked" id="dropdown"
                     class="bg-white divide-y divide-gray-100 rounded-lg shadow w-full md:w-48 z-50 absolute">
-                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" *ngFor="let statusOption of statusOptions">
+                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                        *ngFor="let statusOption of statusOptions">
                         <li>
                             <p (click)="onSearchSelect(statusOption)"
                                 class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white cursor-default">
@@ -28,11 +30,10 @@
                 </div>
             </div>
         </div>
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-3 p-4">
-            <div class="flex flex-col space-y-5 p-4 bg-white rounded-md h-96 shadow-sm shadow-black"
-                *ngFor="let order of allorders | paginate: { itemsPerPage: 10, currentPage: Page, totalItems: getAllOrdersResponse?.total }">
-                <app-order-card [order]="onOrder(order)" (changeOrder)="loadOrderData()"></app-order-card>
-            </div>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-3 m-2">
+            <app-order-card
+                *ngFor="let order of allorders | paginate: { itemsPerPage: 10, currentPage: Page, totalItems: getAllOrdersResponse?.total }"
+                [order]="onOrder(order)" (changeOrder)="loadOrderData()"></app-order-card>
         </div>
     </div>
     <div class="mt-4">

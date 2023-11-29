@@ -29,4 +29,9 @@ export class MainLayoutComponent implements OnInit{
       this.isSidebarOpen = response;
     })
   }
+
+  onClose(){
+    this.menuService.isSidebarOpen.next(false);
+    console.log(this.isSidebarOpen);
+  }
 }
